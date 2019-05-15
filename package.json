@@ -1,9 +1,9 @@
 {
   "name": "vue-calendar-custom",
   "description": "a vue calendar!",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "private": false,
-  "main": "/dist/vue-calendar.js",
+  "main": "./dist/vue-calendar.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"

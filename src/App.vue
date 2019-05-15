@@ -5,20 +5,20 @@
             <!--<el-date-picker type="date" v-model="value"></el-date-picker>-->
         </div>
 
-       <div class="container">
-           <vue-calendar :datetime="value"></vue-calendar>
-       </div>
+        <div class="container">
+            <vue-calendar :datetime="value"></vue-calendar>
+        </div>
     </div>
 </template>
 
 <script>
     //import MonthChoose from './components/Calendar/MonthChoose/index';
-   /* import VueCalendar from './components/Calendar/Calendar';
-*/
+    /* import VueCalendar from './components/Calendar/Calendar';
+ */
     export default {
         name: 'app',
         components: {
-           /* VueCalendar,*/
+            /* VueCalendar,*/
             //MonthChoose,
         },
         data() {
@@ -26,7 +26,8 @@
                 value: new Date(),
             }
         },
-        mounted() {            let ssss = this.$initCalendar(new Date());
+        mounted() {
+            let ssss = this.$initCalendar(new Date());
             console.log(ssss);
         }
     }
@@ -37,6 +38,7 @@
         display: flex;
         width: 100%;
         height: 100%;
+
         .container {
             margin-left: 600px;
             margin-top: 10px;
