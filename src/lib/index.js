@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import calendar from '../components/Calendar/Calendar.vue';
 import MonthChoose from '../components/Calendar/MonthChoose/index';
 import mixins from '@/assets/js/mixins/calendar.js';
