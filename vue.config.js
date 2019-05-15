@@ -1,14 +1,28 @@
+let path = require('path');
+
 module.exports = {
+    configureWebpack: {
+        entry: './src/lib/index.js',
+        output: {
+            path: path.resolve(__dirname, './dist'),
+            //publicPath: '/dist/',
+            // filename: 'build.js' // 打包后输出的文件名
+            filename: 'vue-calendar.js', // 我们可不想打包后叫build.js 多low啊 起一个与项目相对应的
+            library: 'VueCalendar', // library指定的就是你使用require时的模块名，这里便是require("VueCalendar")
+            libraryTarget: 'umd', //libraryTarget会生成不同umd的代码,可以只是commonjs标准的，也可以是指amd标准的，也可以只是通过script标签引入的。
+            umdNamedDefine: true // 会对 UMD 的构建过程中的 AMD 模块进行命名。否则就使用匿名的 define。
+        },
+    },
     // 基本路径
     //baseUrl: '/',
-    publicPath: './',
+    publicPath: './src/lib/index.js',
     // 输出文件目录
-    outputDir: 'dist',
+    outputDir: './dist',
     // eslint-loader 是否在保存的时候检查
     lintOnSave: true,
     // webpack配置
-    chainWebpack: () => { },
-    configureWebpack: () => { },
+    chainWebpack: () => {
+    },
     // 生产环境是否生成 sourceMap 文件
     productionSourceMap: true,
     // css相关配置
@@ -41,8 +55,9 @@ module.exports = {
                 }
             }
         },                                           // 配置跨域处理,只有一个代理*/
-        proxy:null,
-        before: app => { }
+        proxy: null,
+        before: app => {
+        }
     },
     // 第三方插件配置
     pluginOptions: {}

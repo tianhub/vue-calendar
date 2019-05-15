@@ -1,7 +1,9 @@
 {
-  "name": "vue-calendar",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vue-calendar-custom",
+  "description": "a vue calendar!",
+  "version": "1.0.0",
+  "private": false,
+  "main": "/dist/vue-calendar.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
@@ -9,6 +11,10 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tianhub/vue-calendar.git"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
