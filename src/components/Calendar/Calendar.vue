@@ -15,9 +15,9 @@
           </div>
           <div class="calendar-day">
             <div class="ui-container">
-              <div :class="{'gray':item.type=='prev'||item.type=='next','current':item.today}" v-for="item in daysList" class="calendar-day-item" :style="{height:`${100/(daysList.length/7)}%`}">
+              <div :class="{'gray':item.$vue_calendar_type=='prev'||item.$vue_calendar_type=='next','current':item.$vue_calendar_today}" v-for="item in daysList" class="calendar-day-item" :style="{height:`${100/(daysList.length/7)}%`}">
                 <slot :name="'slot'+item.$vue_calendar_id">
-                  {{item.date}}
+                  {{item.$vue_calendar_date}}
                 </slot>
               </div>
             </div>
@@ -88,9 +88,7 @@
 
 <style scoped lang="scss">
 
-  .gray {
-    color: #DADADA !important;
-  }
+
 
 
   #calendar-tpl {
@@ -131,7 +129,7 @@
                   height: 100%;
 
                   .week-item-date {
-
+                    min-height: 50px;
                     font-size: 18px;
                     font-family: MicrosoftYaHei-Bold;
                     font-weight: bold;
@@ -161,8 +159,23 @@
 
               .calendar-day-item {
                 border: 1px solid #E4E4E4;
+                border-top: none;
                 display: inline-block;
                 width: 14%;
+                flex: none;
+                min-height: 60px;
+                /*&:nth-child(7n+1) {
+                  margin-left: -1px;
+                }*/
+                &:not(:nth-child(7n)) {
+                  border-right: none;
+                }
+                &:nth-child(-n+7) {
+                  border-top: 1px solid #E4E4E4;
+                }
+                &.gray {
+                  color: #DADADA !important;
+                }
                 &.current {
                   color: #cf2e33;
                 }

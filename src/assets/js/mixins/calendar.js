@@ -33,8 +33,6 @@ let calendar = {
 
     },
 
-
-
     //获取date月当月天总数,参数二可获取其他月天总数(需传特定值)
     getDaysCount(date, setmonth = 0) {
       let curDate = new Date(date);
@@ -66,10 +64,10 @@ let calendar = {
       let lastMonthCounts = this.getDaysCount(date, -1);
       for (let i = lastMonthCounts - lastMonthRest + 1; i <= lastMonthCounts; i++) {
         let obj = {
-          datetime: this.getDateTimeByDay(date, i, -1),
-          today: false,
-          type: 'prev',//用来区分 上月本月下月字体颜色 本月黑 上下月灰
-          date: i
+          $vue_calendar_datetime: this.getDateTimeByDay(date, i, -1),
+          $vue_calendar_today: false,
+          $vue_calendar_type: 'prev',//用来区分 上月本月下月字体颜色 本月黑 上下月灰
+          $vue_calendar_date: i
         };
         arr.push(obj);
       }
@@ -83,11 +81,27 @@ let calendar = {
       let curDay = this.getCurrentDay();
       for (let i = 1; i <= days; i++) {
         let obj = {
-          datetime: this.getDateTimeByDay(date, i, 0),
-          today: curDay == i && this.getCurrentMonth() == this.getCurrentMonth(date),
-          type: 'cur',
-          date: i,
-          week:this.getWeek(this.getDateTimeByDay(date, i, 0)),
+          $vue_calendar_datetime: this.getDateTimeByDay(date, i, 0),
+          $vue_calendar_today: curDay == i && this.getCurrentMonth() == this.getCurrentMonth(date),
+          $vue_calendar_type: 'cur',
+          $vue_calendar_date: i,
+          $vue_calendar_week:this.getWeek(this.getDateTimeByDay(date, i, 0)),
+        };
+        arr.push(obj);
+      }
+      return arr;
+    },
+    //获取下月存留日历几天-->日历页面前部灰色日期
+    getNextMonthRestList(date) {
+      let arr = [];
+      let nextMonthRest = 7 - this.getCurrMonthLastWeek(date);//获取下月余几天
+      let nextMonthCounts = this.getDaysCount(date, 1);
+      for (let i = 1; i <= nextMonthRest; i++) {
+        let obj = {
+          $vue_calendar_datetime: this.getDateTimeByDay(date, i, 1),
+          $vue_calendar_today: false,
+          $vue_calendar_type: 'next',
+          $vue_calendar_date: i
         };
         arr.push(obj);
       }
@@ -111,23 +125,6 @@ let calendar = {
       let curDate = new Date(date);
       let curMonth = curDate.getMonth() + 1;
       return curMonth;
-    },
-
-    //获取下月存留日历几天-->日历页面前部灰色日期
-    getNextMonthRestList(date) {
-      let arr = [];
-      let nextMonthRest = 7 - this.getCurrMonthLastWeek(date);//获取下月余几天
-      let nextMonthCounts = this.getDaysCount(date, 1);
-      for (let i = 1; i <= nextMonthRest; i++) {
-        let obj = {
-          datetime: this.getDateTimeByDay(date, i, 1),
-          today: false,
-          type: 'next',
-          date: i
-        };
-        arr.push(obj);
-      }
-      return arr;
     },
 
     //通过当日几号和月份传入获取日期格式
@@ -169,26 +166,6 @@ let calendar = {
         }
       }
       return format;
-    },
-
-
-    //某月最后一天时间
-    lastTimeOfMonth(datetime) {
-      let startDate = new Date(datetime);
-      startDate.setDate(1); //第一天
-
-      let endDate = new Date(startDate);
-      endDate.setMonth(startDate.getMonth() + 1)
-      endDate.setDate(0);
-
-      let date = endDate;
-      let year = date.getFullYear();
-      let month = date.getMonth() + 1;
-      let day = date.getDate();
-      let hour = '23';
-      let minute = '59';
-      let second = '59';
-      return year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ":" + second;
     }
   },
 };

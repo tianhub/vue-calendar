@@ -40,7 +40,7 @@
         height: 100%;
 
         .container {
-            margin-left: 600px;
+            margin-left: 400px;
             margin-top: 10px;
             width: 800px;
             height: 600px;

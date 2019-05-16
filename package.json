@@ -1,12 +1,13 @@
 {
   "name": "vue-calendar-custom",
-  "description": "a vue calendar!",
-  "version": "1.0.4",
+  "description": "一个可自定义日历单元格内容的日历插件",
+  "version": "1.0.12",
   "private": false,
-  "main": "./dist/vue-calendar.js",
+  "main": "./dist/vue-calendar-custom.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name vue-calendar-custom ./src/lib/index.js"
   },
   "dependencies": {
     "core-js": "^2.6.5",

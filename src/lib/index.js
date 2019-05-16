@@ -1,9 +1,8 @@
-import Vue from 'vue';
 import calendar from '../components/Calendar/Calendar.vue';
 import MonthChoose from '../components/Calendar/MonthChoose/index';
 import mixins from '@/assets/js/mixins/calendar.js';
 
-let VueCalendarCustom = {
+const VueCalendarCustom = {
     install(Vue, options) {
         Vue.component(calendar.name, calendar);
         Vue.component(MonthChoose.name, MonthChoose);
@@ -12,7 +11,7 @@ let VueCalendarCustom = {
 }
 // 新增
 if (typeof window !== 'undefined' && window.Vue) {
-    window.Vue.use(paykeyboard);
+    window.Vue.use(VueCalendarCustom);
 }
 
 export default VueCalendarCustom
