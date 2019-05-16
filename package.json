@@ -1,7 +1,7 @@
 {
   "name": "vue-calendar-custom",
   "description": "一个可自定义日历单元格内容的日历插件",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "private": false,
   "main": "./dist/vue-calendar-custom.umd.min.js",
   "scripts": {

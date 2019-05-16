@@ -31,7 +31,7 @@
 <script>
   import mixins from '@/assets/js/mixins/calendar.js';
   export default {
-    name: "vue-calendar",
+    name: "vue-calendar-custom",
     mixins: [mixins],
     props:{
       datetime: {
@@ -160,7 +160,7 @@
               .calendar-day-item {
                 border: 1px solid #E4E4E4;
                 border-top: none;
-                display: inline-block;
+                display: flex;
                 width: 14%;
                 flex: none;
                 min-height: 60px;

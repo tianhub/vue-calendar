@@ -6,7 +6,7 @@
         </div>
 
         <div class="container">
-            <vue-calendar :datetime="value"></vue-calendar>
+            <vue-calendar-custom :datetime="value"></vue-calendar-custom>
         </div>
     </div>
 </template>
@@ -42,8 +42,8 @@
         .container {
             margin-left: 400px;
             margin-top: 10px;
-            width: 800px;
-            height: 600px;
+            width: 1100px;
+            height: 800px;
         }
     }
 </style>

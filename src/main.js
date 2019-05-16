@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueCalendar from './lib/index.js';
-Vue.use(VueCalendar);
+import VueCalendarCustom from './lib/index.js';
+Vue.use(VueCalendarCustom);
 
 Vue.config.productionTip = false
 
